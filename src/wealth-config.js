@@ -1,6 +1,12 @@
 // Public commercial configuration. Never put secrets here.
 export const wealthConfig = Object.freeze({
-  checkouts: { book: '', journey: '', complete: '' },
+  checkouts: {
+    book: 'https://pay.hotmart.com/J106747367T?off=aw7l28fk',
+    journey: 'https://pay.hotmart.com/D107972742K?off=f7x5l6q8',
+    complete: 'https://pay.hotmart.com/D107972742K?off=ystk34v8',
+  },
+  // Keep checkout buttons locked until delivery and the sales pages are ready.
+  salesEnabled: false,
   contactEmail: '',
   privacyUrl: '',
   termsUrl: '',
@@ -17,6 +23,7 @@ export const offers = Object.freeze({
 });
 
 export function checkoutUrl(offer, search = '', config = wealthConfig) {
+  if (config.salesEnabled === false) return null;
   const raw = config.checkouts[offer];
   if (!raw) return null;
   let url;
