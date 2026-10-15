@@ -5,8 +5,8 @@ export const wealthConfig = Object.freeze({
     journey: 'https://pay.hotmart.com/D107972742K?off=f7x5l6q8',
     complete: 'https://pay.hotmart.com/D107972742K?off=ystk34v8',
   },
-  // Keep checkout buttons locked until delivery and the sales pages are ready.
-  salesEnabled: false,
+  // Open each offer only when its content and delivery are ready.
+  enabledOffers: { book: false, journey: false, complete: false },
   contactEmail: '',
   privacyUrl: '',
   termsUrl: '',
@@ -23,7 +23,7 @@ export const offers = Object.freeze({
 });
 
 export function checkoutUrl(offer, search = '', config = wealthConfig) {
-  if (config.salesEnabled === false) return null;
+  if (config.enabledOffers && config.enabledOffers[offer] !== true) return null;
   const raw = config.checkouts[offer];
   if (!raw) return null;
   let url;
