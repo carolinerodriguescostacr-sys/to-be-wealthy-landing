@@ -7,7 +7,7 @@ export const wealthConfig = Object.freeze({
   },
   // Open each offer only when its content and delivery are ready.
   enabledOffers: { book: false, journey: false, complete: false },
-  contactEmail: '',
+  contactEmail: 'wealthbylin@gmail.com',
   privacyUrl: '',
   termsUrl: '',
   platformUrl: 'https://app.tobewealthy.site/',
