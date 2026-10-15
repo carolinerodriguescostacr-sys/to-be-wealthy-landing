@@ -6,7 +6,7 @@ export const wealthConfig = Object.freeze({
     complete: 'https://pay.hotmart.com/D107972742K?off=ystk34v8',
   },
   // Open each offer only when its content and delivery are ready.
-  enabledOffers: { book: false, journey: false, complete: false },
+  enabledOffers: { book: true, journey: false, complete: false },
   contactEmail: 'wealthbylin@gmail.com',
   privacyUrl: '',
   termsUrl: '',
