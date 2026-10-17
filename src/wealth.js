@@ -1,4 +1,4 @@
-import { wealthConfig, offers, checkoutUrl } from './wealth-config.js?v=20261015-ebook';
+import { wealthConfig, offers, checkoutUrl } from './wealth-config.js?v=20261016-legal';
 
 // A consent-aware tag manager can subscribe to this event. No network calls,
 // personal data, or persistent tracking are introduced by the landing page.
