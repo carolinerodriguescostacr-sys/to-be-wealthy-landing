@@ -5,8 +5,8 @@ export const wealthConfig = Object.freeze({
     journey: 'https://pay.hotmart.com/D107972742K?off=f7x5l6q8',
     complete: 'https://pay.hotmart.com/D107972742K?off=ystk34v8',
   },
-  // Open each offer only when its content and delivery are ready.
-  enabledOffers: { book: true, journey: false, complete: false },
+  // Guided Journey and bundle are sold as clearly disclosed early access.
+  enabledOffers: { book: true, journey: true, complete: true },
   contactEmail: 'wealthbylin@gmail.com',
   privacyUrl: 'https://tobewealthy.site/privacy.html',
   termsUrl: 'https://tobewealthy.site/terms.html',
