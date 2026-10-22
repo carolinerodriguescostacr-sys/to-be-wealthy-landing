@@ -1,10 +1,10 @@
-import { wealthConfig, offers, checkoutUrl } from './wealth-config.js?v=20261018-live';
+import { wealthConfig, offers, checkoutUrl } from './wealth-config.js?v=20261022-analytics';
+import { initAnalytics, trackAnalytics, trackCheckoutClick } from './wealth-analytics.js?v=20261022-analytics';
 
-// A consent-aware tag manager can subscribe to this event. No network calls,
-// personal data, or persistent tracking are introduced by the landing page.
+initAnalytics(wealthConfig);
 export function track(name, detail = {}) {
   if (!wealthConfig.analyticsEnabled) return;
-  window.dispatchEvent(new CustomEvent('wealth:analytics', { detail: { event: name, ...detail } }));
+  trackAnalytics(name, detail);
 }
 
 const menu = document.querySelector('#site-menu');
@@ -23,8 +23,7 @@ for (const button of document.querySelectorAll('[data-offer]')) {
   const url = checkoutUrl(key, location.search);
   if (!url) { button.disabled = true; button.setAttribute('aria-describedby', 'checkout-availability'); continue; }
   button.addEventListener('click', () => {
-    track('checkout_click', { offer_id: key, item_name: offers[key].name, value: offers[key].price, currency: 'USD' });
-    location.assign(url);
+    trackCheckoutClick(key, offers[key], url);
   });
 }
 if (Object.keys(offers).every(key => checkoutUrl(key))) {

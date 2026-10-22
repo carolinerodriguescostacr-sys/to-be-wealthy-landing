@@ -12,8 +12,8 @@ export const wealthConfig = Object.freeze({
   termsUrl: 'https://tobewealthy.site/terms.html',
   platformUrl: 'https://app.tobewealthy.site/',
   canonicalUrl: 'https://tobewealthy.site/',
-  // Reserved for a future consent-aware analytics integration.
-  analyticsEnabled: false,
+  analyticsEnabled: true,
+  analyticsMeasurementId: 'G-BQW22RTV4P',
 });
 
 export const offers = Object.freeze({
